@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Love You</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      font-size: 1.5em;
+      max-width: 600px;
+    }
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts"></div>
+  <h1>I Love You</h1>
+  <p>You're my sunshine, my joy, and the most beautiful part of my world. I just wanted you to know how deeply I love you.</p>  <script>
+    const heartContainer = document.querySelector('.hearts');
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+      heartContainer.appendChild(heart);
+    }
+  </script></body>
+</html>
